@@ -1,8 +1,10 @@
+@import '../../assets/styles/variables.scss';
+
 .search-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffe600;
+    background-color: $primary-color;
     padding: 10px;
 }
 
@@ -15,10 +17,10 @@
     display: flex;
     flex-grow: 1;
     max-width: 800px;
-    background-color: white;
-    border-radius: 4px;
+    background-color: $white-color;
+    border-radius: $border-radius;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: $box-shadow;
 }
 
 .search-input {
@@ -30,7 +32,7 @@
 }
 
 .search-button {
-    background-color: #EEEEEE;
+    background-color: $secondary-color;
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -40,10 +42,6 @@
     font-size: 16px;
 
     &:hover {
-        background-color: lighten(#EEEEEE, 10%);
+        background-color: $secondary-hover-color;
     }
-}
-
-.search-button:hover {
-    background-color: #e0e0e0;
 }
