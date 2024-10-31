@@ -8,11 +8,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <SearchBox /> */}
+        <SearchBox />
         <Routes>
-          <Route path="/" element={<SearchBox />} />
-          {/* <Route path="/items" element={<SearchResults />} /> */}
-          {/* <Route path="/items/:id" element={<ProductDetail />} /> */}
+          <Route path="/items" element={<SearchResults />} />
+          <Route path="/items/:id" element={<ProductDetail />} />
         </Routes>
       </div>
     </Router>
