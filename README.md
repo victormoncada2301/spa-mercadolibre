@@ -83,6 +83,8 @@ En el directorio `client`, puedes ejecutar:
 - `npm start`: Inicia la aplicación en modo de desarrollo. Abre [http://localhost:3000](http://localhost:3000).
 - `npm test`: Ejecuta las pruebas unitarias en modo interactivo.
 
+![image](https://github.com/user-attachments/assets/3870e3ca-2908-413d-8880-8eab2e514ac5)
+
 ### Servidor
 
 En el directorio `server`, puedes ejecutar:
