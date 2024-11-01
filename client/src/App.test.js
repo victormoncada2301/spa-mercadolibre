@@ -7,3 +7,4 @@ test('renders the App component with SearchBox', () => {
     const searchPlaceholder = screen.getByPlaceholderText('Buscar productos, marcas y más...');
     expect(searchPlaceholder).toBeInTheDocument();
 });
+
