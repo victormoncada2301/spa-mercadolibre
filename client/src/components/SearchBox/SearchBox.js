@@ -5,14 +5,22 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/images/logo.png';
 import './SearchBox.scss';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const SearchBox = () => {
     const [query, setQuery] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (query) {
-            navigate(`/items?search=${query}`);
+            try {
+                const response = await fetch(`${apiUrl}/api/items?q=${query}`);
+                const data = await response.json();
+                navigate(`/items?search=${query}`, { state: { results: data.items, categories: data.categories } });
+            } catch (error) {
+                console.error('Error al obtener los resultados de búsqueda:', error);
+            }
         }
     };
 
