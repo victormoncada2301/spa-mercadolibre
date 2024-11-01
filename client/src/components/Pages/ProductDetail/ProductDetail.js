@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Loading from '../../Global/Loading/Loading';
 import Breadcrumb from '../../Global/Breadcrumb/Breadcrumb';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
     const { id } = useParams();
-    const location = useLocation();
     const [product, setProduct] = useState(null);
-    const [categories] = useState(location.state?.categories || []);
+    const [categories, setCategories] = useState([]);
     const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
@@ -17,6 +16,7 @@ const ProductDetail = () => {
                 const response = await fetch(`${apiUrl}/api/items/${id}`);
                 const data = await response.json();
                 setProduct(data.item);
+                setCategories(data.categories);
             } catch (error) {
                 console.error('Error al obtener detalles del producto:', error);
             }

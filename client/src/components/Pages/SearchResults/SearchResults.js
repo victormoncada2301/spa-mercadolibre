@@ -27,7 +27,6 @@ const SearchResults = () => {
     return (
         <div className="search-results">
             <Breadcrumb categories={categories} />
-            {/* Lista de resultados */}
             <ul className="item-list">
                 {results.length > 0 ? (
                     results.map((item) => (
