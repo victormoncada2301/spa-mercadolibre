@@ -55,7 +55,7 @@ Para instalar y ejecutar este proyecto, sigue estos pasos:
 ### Paso a Paso
 1. Clona el repositorio:
     ```bash
-    git clone https://github.com/tu_usuario/mercadolibre-challenge.git
+    git clone https://github.com/victormoncada2301/spa-mercadolibre.git
     ```
 
 2. Instala las dependencias del cliente y del servidor:
