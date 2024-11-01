@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import Breadcrumb from '../Global/Breadcrumb/Breadcrumb';
+import Breadcrumb from '../../Global/Breadcrumb/Breadcrumb';
 import './SearchResults.scss';
 
 const SearchResults = () => {

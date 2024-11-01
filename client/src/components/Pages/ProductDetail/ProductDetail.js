@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import Loading from '../Global/Loading/Loading';
-import Breadcrumb from '../Global/Breadcrumb/Breadcrumb';
+import Loading from '../../Global/Loading/Loading';
+import Breadcrumb from '../../Global/Breadcrumb/Breadcrumb';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
