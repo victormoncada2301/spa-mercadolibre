@@ -33,6 +33,8 @@ La aplicación se divide en dos partes:
 2. **Detalle del Producto**: Al seleccionar un producto, el usuario es dirigido a una página con información detallada del producto.
 3. **Breadcrumb**: Navegación de categorías para ayudar al usuario a entender la ubicación de un producto en la jerarquía de categorías.
 4. **Loading Spinner**: Mientras los datos se cargan desde el servidor, se muestra un componente `Loading` que indica al usuario que la información está siendo procesada.
+   
+![image](https://github.com/user-attachments/assets/50418c3f-fba2-44eb-a640-b8ad3252d66f)
 
 ### Servidor
 1. **Endpoint de Búsqueda**: Permite buscar productos basados en una palabra clave.
@@ -40,6 +42,8 @@ La aplicación se divide en dos partes:
 3. **Swagger Documentation**: Todos los endpoints están documentados usando Swagger, facilitando la comprensión y el uso de los servicios por otros desarrolladores.
 
 Se puede revisar la documentación de los servicios en la pagina: http://localhost:3001/api-docs/
+
+![image](https://github.com/user-attachments/assets/5487f670-846a-4f38-b589-42a3cc91c7dc)
 
 ## Instalación
 
