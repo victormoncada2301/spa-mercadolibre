@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Loading from '../Loading/Loading';
+import { useParams, useLocation } from 'react-router-dom';
+import Loading from '../Global/Loading/Loading';
+import Breadcrumb from '../Global/Breadcrumb/Breadcrumb';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
     const { id } = useParams();
+    const location = useLocation();
     const [product, setProduct] = useState(null);
+    const [categories] = useState(location.state?.categories || []);
     const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
@@ -26,6 +29,7 @@ const ProductDetail = () => {
 
     return (
         <div className="product-detail">
+            <Breadcrumb categories={categories} />
             <div className="product-header">
                 <img src={product.picture} alt={product.title} className="product-image" />
                 <div className="product-info">

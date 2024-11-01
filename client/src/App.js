@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchResults from './components/SearchResults/SearchResults';
 import ProductDetail from './components/ProductDetail/ProductDetail';
-import Home from './components/Home/Home';
+import Home from './components/Global/Home/Home';
 
 function App() {
   return (

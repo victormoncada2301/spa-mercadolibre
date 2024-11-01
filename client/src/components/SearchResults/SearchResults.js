@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import Breadcrumb from '../Global/Breadcrumb/Breadcrumb';
 import './SearchResults.scss';
 
 const SearchResults = () => {
@@ -25,11 +26,7 @@ const SearchResults = () => {
 
     return (
         <div className="search-results">
-            {/* Breadcrumb de categorías */}
-            {categories.length > 0 && (
-                <div className="breadcrumb">{categories.join(' > ')}</div>
-            )}
-
+            <Breadcrumb categories={categories} />
             {/* Lista de resultados */}
             <ul className="item-list">
                 {results.length > 0 ? (
