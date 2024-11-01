@@ -1,0 +1,81 @@
+@import '../../assets/styles/variables.scss';
+
+.product-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+
+    .product-header {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .product-image {
+        width: 400px;
+        height: auto;
+        border-radius: $border-radius;
+        margin-right: 20px;
+    }
+
+    .product-info {
+        flex: 1;
+
+        .product-condition {
+            font-size: 14px;
+            color: $gray-color;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: $text-color;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 36px;
+            font-weight: bold;
+            color: $text-color;
+            margin-bottom: 20px;
+
+            .price-decimals {
+                font-size: 24px;
+                vertical-align: super;
+            }
+        }
+
+        .buy-button {
+            background-color: $button-color;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: $border-radius;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($button-color, 10%);
+            }
+        }
+    }
+
+    .product-description {
+        margin-top: 20px;
+
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: $gray-color;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: $gray-color;
+            line-height: 1.5;
+        }
+    }
+}
