@@ -16,7 +16,45 @@ const getCategoryPath = async (categoryId) => {
     }
 };
 
-// Endpoint de búsqueda
+/**
+ * @swagger
+ * /api/items:
+ *   get:
+ *     summary: Busca productos por nombre
+ *     description: Realiza una búsqueda de productos en MercadoLibre según una consulta específica.
+ *     parameters:
+ *       - in: query
+ *         name: q
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: El término de búsqueda para encontrar productos.
+ *     responses:
+ *       200:
+ *         description: Lista de productos y categorías relacionadas
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 author:
+ *                   type: object
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                     lastname:
+ *                       type: string
+ *                 categories:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *                 items:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Item'
+ *       500:
+ *         description: Error en la búsqueda de productos.
+ */
 const searchItems = async (req, res) => {
     const query = req.query.q;
     try {
@@ -39,7 +77,7 @@ const searchItems = async (req, res) => {
         let categories = [];
         if (categoryFilter && categoryFilter.values.length > 0) {
             const topCategory = categoryFilter.values.sort((a, b) => b.results - a.results)[0];
-            categories = await getCategoryPath(topCategory.id);  // Usamos la función aquí
+            categories = await getCategoryPath(topCategory.id);
         }
 
         res.json({ author, categories, items });
@@ -48,7 +86,43 @@ const searchItems = async (req, res) => {
     }
 };
 
-// Endpoint de detalle del producto
+/**
+ * @swagger
+ * /api/items/{id}:
+ *   get:
+ *     summary: Obtiene detalles de un producto específico
+ *     description: Recupera la información completa de un producto en MercadoLibre usando su ID.
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: El ID único del producto en MercadoLibre.
+ *     responses:
+ *       200:
+ *         description: Detalle completo del producto
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 author:
+ *                   type: object
+ *                   properties:
+ *                     name:
+ *                       type: string
+ *                     lastname:
+ *                       type: string
+ *                 item:
+ *                   $ref: '#/components/schemas/ItemDetail'
+ *                 categories:
+ *                   type: array
+ *                   items:
+ *                     type: string
+ *       500:
+ *         description: Error al obtener los detalles del producto.
+ */
 const getItemDetail = async (req, res) => {
     const { id } = req.params;
     try {
@@ -60,7 +134,7 @@ const getItemDetail = async (req, res) => {
         const item = itemResponse.data;
         const description = descriptionResponse.data.plain_text;
 
-        //Obtener las categorias del item
+        // Obtener las categorias del item
         const categories = item.category_id ? await getCategoryPath(item.category_id) : [];
 
         const formattedItem = {
@@ -83,6 +157,61 @@ const getItemDetail = async (req, res) => {
         res.status(500).json({ error: 'Error al obtener detalle del producto' });
     }
 };
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Item:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *         title:
+ *           type: string
+ *         price:
+ *           type: object
+ *           properties:
+ *             currency:
+ *               type: string
+ *             amount:
+ *               type: integer
+ *             decimals:
+ *               type: string
+ *         picture:
+ *           type: string
+ *         condition:
+ *           type: string
+ *         free_shipping:
+ *           type: boolean
+ *
+ *     ItemDetail:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *         title:
+ *           type: string
+ *         price:
+ *           type: object
+ *           properties:
+ *             currency:
+ *               type: string
+ *             amount:
+ *               type: integer
+ *             decimals:
+ *               type: string
+ *         picture:
+ *           type: string
+ *         condition:
+ *           type: string
+ *         free_shipping:
+ *           type: boolean
+ *         sold_quantity:
+ *           type: integer
+ *         description:
+ *           type: string
+ */
 
 module.exports = {
     searchItems,
