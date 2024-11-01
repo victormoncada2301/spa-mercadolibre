@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../assets/images/logo.png';
+import logo from '../../../assets/images/logo.png';
 import './SearchBox.scss';
 
 const apiUrl = process.env.REACT_APP_API_URL;
