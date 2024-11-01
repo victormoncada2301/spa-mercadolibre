@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 import './ProductDetail.scss';
 
 const ProductDetail = () => {
-
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
-        fetch(`${apiUrl}/api/items/${id}`)
-            .then((response) => response.json())
-            .then((data) => setProduct(data.item))
-            .catch((error) => console.error('Error al obtener detalles del producto:', error));
+        const fetchProduct = async () => {
+            try {
+                const response = await fetch(`${apiUrl}/api/items/${id}`);
+                const data = await response.json();
+                setProduct(data.item);
+            } catch (error) {
+                console.error('Error al obtener detalles del producto:', error);
+            }
+        };
+
+        fetchProduct();
     }, [id]);
-    
-    if (!product) return <div>Loading...</div>;
+
+    if (!product) return <Loading />;
 
     return (
         <div className="product-detail">

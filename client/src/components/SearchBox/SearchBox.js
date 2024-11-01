@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/images/logo.png';
@@ -24,11 +24,20 @@ const SearchBox = () => {
         }
     };
 
+    const handleLogoClick = () => {
+        setQuery('');
+        navigate('/');
+    };
+
     return (
         <div className="search-container">
-            <Link to="/" className="logo-link">
-                <img src={logo} alt="Mercado Libre Logo" className="logo" />
-            </Link>
+            <img
+                src={logo}
+                alt="Mercado Libre Logo"
+                className="logo"
+                onClick={handleLogoClick}
+                style={{ cursor: 'pointer' }}
+            />
             <form onSubmit={handleSubmit} className="search-box">
                 <input
                     type="text"

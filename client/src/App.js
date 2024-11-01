@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchResults from './components/SearchResults/SearchResults';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import Home from './components/Home/Home';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <div className="App">
         <SearchBox />
         <Routes>
-          <Route path="/" element={<SearchResults />} />
+          <Route path="/" element={<Home />} />
           <Route path="/items" element={<SearchResults />} />
           <Route path="/items/:id" element={<ProductDetail />} />
         </Routes>
