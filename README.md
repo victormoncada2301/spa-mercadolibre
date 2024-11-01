@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# MercadoLibre Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es una aplicación que simula la búsqueda de productos en MercadoLibre, permitiendo a los usuarios buscar productos, ver detalles de productos específicos.
 
-## Available Scripts
+La aplicación se divide en dos partes:
 
-In the project directory, you can run:
+- **Cliente**: Construido con React, encargado de la interfaz de usuario.
+- **Servidor**: Construido con Node.js y Express, que se comunica con la API de MercadoLibre y expone servicios documentados en Swagger.
 
-### `npm start`
+## Tabla de Contenidos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. [Tecnologías](#tecnologías)
+2. [Características](#características)
+3. [Instalación](#instalación)
+4. [Scripts Disponibles](#scripts-disponibles)
+5. [Estructura del Proyecto](#estructura-del-proyecto)
+6. [Testing](#testing)
+7. [Swagger API Documentation](#swagger-api-documentation)
+8. [Extras](#extras)
+9. [Autor](#autor)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologías
 
-### `npm test`
+- **Cliente**: React, Create React App, SCSS
+- **Servidor**: Node.js, Express, Axios
+- **Documentación**: Swagger
+- **Testing**: Jest, React Testing Library
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Características
 
-### `npm run build`
+### Cliente
+1. **Búsqueda de Productos**: Los usuarios pueden buscar productos por palabra clave y ver una lista de resultados.
+2. **Detalle del Producto**: Al seleccionar un producto, el usuario es dirigido a una página con información detallada del producto.
+3. **Breadcrumb**: Navegación de categorías para ayudar al usuario a entender la ubicación de un producto en la jerarquía de categorías.
+4. **Loading Spinner**: Mientras los datos se cargan desde el servidor, se muestra un componente `Loading` que indica al usuario que la información está siendo procesada.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Servidor
+1. **Endpoint de Búsqueda**: Permite buscar productos basados en una palabra clave.
+2. **Endpoint de Detalle de Producto**: Proporciona información detallada de un producto específico.
+3. **Swagger Documentation**: Todos los endpoints están documentados usando Swagger, facilitando la comprensión y el uso de los servicios por otros desarrolladores.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Se puede revisar la documentación de los servicios en la pagina: http://localhost:3001/api-docs/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instalación
 
-### `npm run eject`
+Para instalar y ejecutar este proyecto, sigue estos pasos:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Requisitos Previos
+- Node.js y npm instalados en tu máquina.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Paso a Paso
+1. Clona el repositorio:
+    ```bash
+    git clone https://github.com/tu_usuario/mercadolibre-challenge.git
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Instala las dependencias del cliente y del servidor:
+    ```bash
+    # Navegar al cliente
+    cd client
+    npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    # Navegar al servidor
+    cd ../server
+    npm install
+    ```
 
-## Learn More
+3. Configura el archivo `.env` en el servidor con la URL base de la API de MercadoLibre:
+    ```plaintext
+    REACT_APP_API_URL=http://localhost:3001
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Scripts Disponibles
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Cliente
 
-### Code Splitting
+En el directorio `client`, puedes ejecutar:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `npm start`: Inicia la aplicación en modo de desarrollo. Abre [http://localhost:3000](http://localhost:3000).
+- `npm test`: Ejecuta las pruebas unitarias en modo interactivo.
 
-### Analyzing the Bundle Size
+### Servidor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+En el directorio `server`, puedes ejecutar:
 
-### Making a Progressive Web App
+- `npm start`: Inicia el servidor en [http://localhost:3001](http://localhost:3001).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Estructura del Proyecto
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```plaintext
+mercadolibre-challenge/
+├── client/              # Aplicación de cliente (React)
+│   ├── src/
+│   │   ├── components/  # Componentes React
+│   │   │   ├── Global/  # Componentes globales como Loading y SearchBox
+│   │   │   └── Pages/   # Componentes de páginas como ProductDetail y SearchResults
+│   ├── .env             # Variables de entorno para el cliente
+│   └── package.json
+├── server/              # Servidor Node.js y API
+│   ├── src/
+│   │   ├── controllers/ # Controladores para los endpoints
+│   │   ├── routes/      # Definición de rutas del servidor
+│   ├── swaggerConfig.js # Configuración de Swagger
+│   ├── .env             # Variables de entorno para el servidor
+│   └── package.json
+└── README.md

@@ -5,7 +5,7 @@ const author = {
     lastname: "Moncada"
 };
 
-// Endpoint de categorias 
+/* Endpoint de categorias  */
 const getCategoryPath = async (categoryId) => {
     try {
         const response = await axios.get(`https://api.mercadolibre.com/categories/${categoryId}`);
