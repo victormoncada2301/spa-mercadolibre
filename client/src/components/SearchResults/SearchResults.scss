@@ -1,0 +1,75 @@
+@import '../../assets/styles/variables.scss';
+
+.search-results {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: $gray-color;
+    margin-bottom: 10px;
+}
+
+.item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px solid $light-gray-color;
+}
+
+.item-link {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.item-image {
+    flex: 0 0 180px;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: $border-radius;
+    }
+}
+
+.item-details {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: $text-color;
+    margin-bottom: 5px;
+
+    .free-shipping {
+        background-color: $green-color;
+        color: $white-color;
+        font-size: 12px;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: $border-radius;
+    }
+}
+
+.item-title {
+    font-size: 16px;
+    color: $text-color;
+    margin-bottom: 10px;
+}
+
+.item-location {
+    font-size: 12px;
+    color: $gray-color;
+}

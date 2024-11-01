@@ -10,6 +10,7 @@ function App() {
       <div className="App">
         <SearchBox />
         <Routes>
+          <Route path="/" element={<SearchResults />} />
           <Route path="/items" element={<SearchResults />} />
           <Route path="/items/:id" element={<ProductDetail />} />
         </Routes>
